@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
+    public float speed;
+    private Rigidbody objectRb;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +16,6 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        objectRb.AddForce(Vector3.forward * -speed);
     }
 }
