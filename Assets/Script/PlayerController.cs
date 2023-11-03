@@ -11,25 +11,32 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+        
     }
-
     // Update is called once per frame
     void Update()
+    {
+        movePlayer();
+        PlayerConstriant();
+    }
+    void movePlayer()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float VerticalInput = Input.GetAxis("Vertical");
 
         playerRb.AddForce(Vector3.right * horizontalInput * Speed);
         playerRb.AddForce(Vector3.forward * VerticalInput * Speed);
-
+            
+    }
+    void PlayerConstriant()
+    {
         if (transform.position.z < -Zbound)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, -Zbound);
         }
-        else if  (transform.position.z > Zbound)
-         {
+        else if (transform.position.z > Zbound)
+        {
             transform.position = new Vector3(transform.position.x, transform.position.y, Zbound);
         }
-
     }
 }
