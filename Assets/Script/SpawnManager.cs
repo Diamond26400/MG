@@ -6,7 +6,7 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject[] Enemies;
     public GameObject powerUp;
-    private float ZenemiesSpawnRange = 10.0f;
+    private float ZSpawnRange = 10.0f;
     private float enemySpawn = 12.0f;
     private float ZpowerUpSpawnRange = 10.0f;
     private float ySpawn = 0.75f;
@@ -28,7 +28,7 @@ public class SpawnManager : MonoBehaviour
     }
     private void spawnRandomEnemy()
     {
-        float RandomX = Random.Range(-ZenemiesSpawnRange, ZenemiesSpawnRange);
+        float RandomX = Random.Range(-ZSpawnRange, ZSpawnRange);
         int RandomIndex = Random.Range(0,Enemies.Length);
 
         Vector3 startPros = new Vector3(RandomX, ySpawn, enemySpawn);
@@ -37,7 +37,7 @@ public class SpawnManager : MonoBehaviour
     }
     private void spawnPowerUp()
     {
-        float RandomX = Random.Range(-ZenemiesSpawnRange, ZenemiesSpawnRange);
+        float RandomX = Random.Range(-ZSpawnRange, ZSpawnRange);
         float RandomZ = Random.Range(-ZpowerUpSpawnRange, ZpowerUpSpawnRange);
 
         Vector3 startPos = new Vector3(RandomX ,- ZpowerUpSpawnRange, RandomZ);
